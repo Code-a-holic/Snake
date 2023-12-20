@@ -39,6 +39,7 @@ while game_is_on:
 
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
         scoreboard.gameover()
+        scoreboard.refresh_points()
         game_is_on = False
 
     for segment in snake.snake_body:
@@ -46,6 +47,7 @@ while game_is_on:
             pass
         elif snake.head.distance(segment) < 10:
             game_is_on = False
+            scoreboard.refresh_points()
             scoreboard.gameover()
 
 screen.exitonclick()
